@@ -1,6 +1,10 @@
 # Ignore all environment variable files
 **/.env
 **/.env.*
+**/env.local
+
+# Explicitly ignore local env for data_safeguard
+data_safeguard/.env
 
 # Ignore typical config files that might contain secrets
 **/config.ini
