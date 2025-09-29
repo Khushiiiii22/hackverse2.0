@@ -50,7 +50,7 @@ In an age where misinformation, bias, and complexity dominate, AI Guardian ensur
 ---
 
 ## 🛠️ Tech Stack
-- **Backend:** Python, langraph, 
+- **Backend:** Python, langraph, RAG Model, DuckDuckGo for Web Scraping, Flask.
 - **Frontend:** HTML, CSS, JavaScript   
 - **ML/AI Models:**  
   - Hugging Face Transformers (for NLP, fact-checking)  
