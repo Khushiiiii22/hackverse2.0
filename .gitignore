@@ -1,0 +1,66 @@
+# Ignore all environment variable files
+**/.env
+**/.env.*
+
+# Ignore typical config files that might contain secrets
+**/config.ini
+**/config.yaml
+**/config.yml
+**/config.json
+
+# Ignore secrets and credentials files
+**/secrets.json
+**/secrets.yaml
+**/secrets.yml
+**/secrets.ini
+**/credentials.json
+**/credentials.yaml
+**/credentials.yml
+**/credentials.ini
+
+# Ignore private keys and pem certificates
+**/*.key
+**/*.pem
+
+# Ignore api_key or token files that might hold secrets
+**/*api_key*
+**/*apikey*
+**/*token*
+**/*password*
+
+# Ignore service account keys (Google, AWS, Azure, GCP)
+**/google-service-account.json
+**/aws_credentials
+**/azure_profile.json
+**/gcp_credentials.json
+
+# IDE and editor config folders/files that contain credentials
+.idea/
+.idea/**/workspace.xml
+.idea/**/profiles_settings.xml
+.idea/**/dataSources*
+.vscode/
+
+# Common folders to exclude
+node_modules/
+venv/
+__pycache__/
+
+# Miscellaneous system or local files
+*.local
+*.log
+*.sqlite3
+*.db
+
+# Test coverage output
+.coverage
+pytest_cache/
+
+# Python compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# Build and distribution directories
+build/
+dist/

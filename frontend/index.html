@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wellify - AI for a Safer, Healthier, and Fairer Digital World</title>
+  <style>
+    :root {
+      --background-dark: #101622;
+      --neon-cyan: #00fff0;
+      --neon-blue: #1e90ff;
+      --neon-violet: #a259f7;
+      --neon-green: #3cff7f;
+      --text-light: #dffeff;
+      --card-dark: #191f2b;
+      --border-radius: 18px;
+      --box-shadow-neon: 0 0 40px #00fff0bb;
+      --box-shadow-card: 0 4px 24px rgba(0,0,0,0.13), 0 0 42px #00fff022;
+      --font: 'Inter', 'Segoe UI', Arial, sans-serif;
+    }
+    body {
+      margin: 0; padding: 0;
+      background: var(--background-dark);
+      color: var(--text-light);
+      font-family: var(--font);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    section {
+      max-width: 1080px;
+      padding: 4rem 1rem 4rem 1rem;
+      margin: auto;
+      text-align: center;
+    }
+    .hero {
+      background: radial-gradient(circle, var(--card-dark), var(--background-dark));
+      border-radius: var(--border-radius);
+      margin: 2rem auto;
+      padding: 3rem 2rem;
+      box-shadow: var(--box-shadow-neon);
+    }
+    .hero-logo {
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: var(--neon-cyan);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.6px;
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--neon-violet), var(--neon-green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.25rem;
+      color: #97adc2;
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .btn, .btn-alt {
+      cursor: pointer;
+      padding: 12px 28px;
+      font-weight: 700;
+      border-radius: var(--border-radius);
+      border: none;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    .btn {
+      background: var(--neon-cyan);
+      color: var(--background-dark);
+      box-shadow: 0 0 40px var(--neon-cyan);
+    }
+    .btn:hover {
+      background: var(--neon-green);
+      box-shadow: 0 0 60px var(--neon-green);
+    }
+    .btn-alt {
+      background: transparent;
+      border: 2px solid var(--neon-violet);
+      color: var(--neon-violet);
+      box-shadow: 0 0 40px var(--neon-violet);
+    }
+    .btn-alt:hover {
+      background: var(--neon-violet);
+      color: white;
+      box-shadow: 0 0 70px var(--neon-violet);
+    }
+    .arrow-down {
+      font-size: 3rem;
+      margin-top: 2rem;
+      animation: float 2s ease-in-out infinite;
+      color: var(--neon-cyan);
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+    .info-bar {
+      margin: 2rem auto;
+      max-width: 900px;
+      background-color: hsl(var(--card-dark));
+      color: var(--text-light);
+      border-radius: var(--border-radius);
+      padding: 1.5rem 2rem;
+      box-shadow: var(--box-shadow-card);
+      text-align: left;
+      display: none;
+    }
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .stat {
+      flex: 1 1 180px;
+      background: var(--card-dark);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow-card);
+      padding: 2rem 1rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+    .stat-value {
+      font-weight: 900;
+      font-size: 2.6rem;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-value.cyan { color: var(--neon-cyan); }
+    .stat-value.violet { color: var(--neon-violet); }
+    .stat-value.blue { color: var(--neon-blue); }
+    .stat-label {
+      font-weight: 500;
+      color: #7f8bad;
+      font-size: 1.1rem;
+    }
+    /* Pillars Section */
+    .pillars {
+      margin-bottom: 3rem;
+    }
+    .pillars h2 {
+      font-weight: 900;
+      font-size: 2.75rem;
+      background: linear-gradient(90deg, var(--neon-violet), var(--neon-green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      cursor: pointer;
+    }
+    .pillars p {
+      max-width: 650px;
+      margin: 1rem auto 3rem auto;
+      color: #7f8bad;
+      font-size: 1.18rem;
+      line-height: 1.5;
+    }
+    /* Feature Cards */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px, 1fr));
+      gap: 2.5rem;
+      max-width: 1080px;
+      margin: 0 auto 4rem;
+    }
+    .feature {
+      background: var(--card-dark);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow-card);
+      padding: 1.8rem 1.4rem;
+      text-align: center;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .feature:hover {
+      box-shadow: 0 0 60px var(--neon-cyan);
+      border-color: var(--neon-cyan);
+      transform: scale(1.05);
+    }
+    .feature h3 {
+      color: var(--neon-cyan);
+      font-weight: 700;
+      font-size: 1.35rem;
+      margin-bottom: 0.7rem;
+      text-shadow:
+        0 0 8px var(--neon-cyan),
+        0 0 20px var(--neon-cyan);
+    }
+    .feature p {
+      font-size: 1rem;
+      color: #96abbc;
+      margin-bottom: 1.4rem;
+      line-height: 1.5;
+    }
+    .feature a {
+      display: inline-block;
+      padding: 0.7rem 2rem;
+      font-weight: 600;
+      background: var(--neon-cyan);
+      color: var(--background-dark);
+      border-radius: 1.2rem;
+      text-decoration: none;
+      box-shadow: 0 0 30px var(--neon-cyan);
+      transition: background 0.3s;
+    }
+    .feature a:hover {
+      background: var(--neon-violet);
+      color: #fff;
+      box-shadow: 0 0 40px var(--neon-violet);
+    }
+    /* CTA */
+    .cta {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+    .cta h2 {
+      font-size: 2.3rem;
+      font-weight: 900;
+      margin-bottom: 0.9rem;
+      color: var(--neon-blue);
+    }
+    .cta p {
+      font-size: 1.1rem;
+      line-height: 1.4;
+      color: #7f8bad;
+      margin-bottom: 3rem;
+    }
+    .cta-buttons button {
+      display: inline-block;
+      background: var(--neon-cyan);
+      border: none;
+      color: var(--background-dark);
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      margin: 0 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 30px var(--neon-cyan);
+      transition: background 0.3s ease;
+    }
+    .cta-buttons button:hover {
+      background: var(--neon-violet);
+      color: white;
+      box-shadow: 0 0 40px var(--neon-violet);
+    }
+    /* Popup form overlay */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.75);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+    .overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    /* Modal box */
+    .modal {
+      background: var(--card-dark);
+      border-radius: var(--border-radius);
+      padding: 2rem 2.5rem;
+      width: 320px;
+      max-width: 90vw;
+      box-shadow: var(--box-shadow-card);
+      position: relative;
+      color: var(--text-light);
+    }
+    .modal h3 {
+      margin-top: 0; margin-bottom: 1rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--neon-cyan);
+      text-align: center;
+    }
+    .modal label {
+      display: block;
+      margin: 1rem 0 0.2rem 0;
+      font-weight: 600;
+    }
+    .modal input {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #444c65;
+      background: #202839;
+      color: var(--text-light);
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    .modal button.submit-btn {
+      margin-top: 1.25rem;
+      background: var(--neon-cyan);
+      border: none;
+      color: var(--background-dark);
+      font-weight: 700;
+      padding: 0.75rem 0;
+      width: 100%;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 0 30px var(--neon-cyan);
+      transition: background 0.3s ease;
+    }
+    .modal button.submit-btn:hover {
+      background: var(--neon-green);
+      box-shadow: 0 0 50px var(--neon-green);
+    }
+    .modal .close-btn {
+      position: absolute;
+      top: 16px; right: 20px;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--neon-violet);
+      background: transparent;
+      border: none;
+      font-weight: 900;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-logo">Wellify</div>
+    <div class="hero-title">AI for a Safer, Healthier, and Fairer Digital World</div>
+    <div class="hero-sub">
+      Each component works seamlessly together to create a comprehensive AI safety ecosystem.
+      Scroll through our interactive demos to see how Wellify transforms digital safety.
+    </div>
+    <div class="btn-group">
+      <button class="btn" id="btnStartDemo">Start Interactive Demo</button>
+      <button class="btn-alt" id="btnViewDetails">View Technical Details</button>
+    </div>
+    <div class="arrow-down">&#8595;</div>
+  </section>
+
+  <section class="info-bar" id="technicalDetails">
+    <p>
+      Wellify is a platform where large datasets can be enhanced, legal documents can be corrected, and fake news can be detected. Our AI solutions provide safety and reliability across digital ecosystems.
+    </p>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <div class="stat-value cyan">99.7%</div>
+      <div class="stat-label">Bias Detection Accuracy</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value violet">85%</div>
+      <div class="stat-label">Burnout Prevention Rate</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value blue">94%</div>
+      <div class="stat-label">Content Trust Score</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value violet">90%</div>
+      <div class="stat-label">Legal Clarity Improvement</div>
+    </div>
+  </section>
+
+  <section class="pillars" id="pillarsSection">
+    <h2>Three Pillars of Digital <span style="background: linear-gradient(90deg,#a259f7 40%,#3cff7f 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">Wellbeing</span></h2>
+    <p>Wellify addresses the most critical challenges in our digital ecosystem through intelligent AI solutions that protect, detect, verify, and simplify.</p>
+  </section>
+
+  <section class="features">
+    <div class="feature" onclick="location.href='/datasafeguard'">
+      <h3>Data Safeguard</h3>
+      <p>Check and enhance your datasets for trust and bias automatically.</p>
+      <a href="/datasafeguard">Explore</a>
+    </div>
+    <div class="feature" onclick="location.href='/newsmyth'">
+      <h3>News Myth</h3>
+      <p>Analyze news data and myths to identify credibility and misinformation.</p>
+      <a href="/newsmyth">Explore</a>
+    </div>
+    <div class="feature" onclick="location.href='/rag'">
+      <h3>Legal Documents</h3>
+      <p>Legal document simplification and question answering in plain English.</p>
+      <a href="/rag">Explore</a>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready to Transform Digital Safety?</h2>
+    <p>Join the future of responsible AI. Wellify is building the infrastructure for a safer, healthier, and more trustworthy digital world.</p>
+    <div class="cta-buttons">
+      <button id="partnerBtn">Partner with us!</button>
+      <button onclick="window.location='/rag'">Join as a Guardian</button>
+    </div>
+  </section>
+
+  <!-- Partner with us modal -->
+  <div id="partnerModal" class="overlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-btn" aria-label="Close modal" id="closeModal">&times;</button>
+      <h3 id="modalTitle">Partner with Us</h3>
+      <form id="partnerForm">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required placeholder="Your full name" />
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required placeholder="your.email@example.com" />
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 8901" />
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const btnStartDemo = document.getElementById('btnStartDemo');
+    const btnViewDetails = document.getElementById('btnViewDetails');
+    const technicalDetails = document.getElementById('technicalDetails');
+    const pillarsSection = document.getElementById('pillarsSection');
+    const partnerBtn = document.getElementById('partnerBtn');
+    const partnerModal = document.getElementById('partnerModal');
+    const closeModal = document.getElementById('closeModal');
+    const partnerForm = document.getElementById('partnerForm');
+
+    technicalDetails.style.display = 'none'; // Hidden by default
+
+    btnStartDemo.addEventListener('click', () => {
+      pillarsSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    btnViewDetails.addEventListener('click', () => {
+      if (technicalDetails.style.display === 'none' || technicalDetails.style.display === '') {
+        technicalDetails.style.display = 'block';
+        btnViewDetails.textContent = 'Hide Technical Details';
+      } else {
+        technicalDetails.style.display = 'none';
+        btnViewDetails.textContent = 'View Technical Details';
+      }
+    });
+
+    partnerBtn.addEventListener('click', () => {
+      partnerModal.classList.add('active');
+    });
+
+    closeModal.addEventListener('click', () => {
+      partnerModal.classList.remove('active');
+    });
+
+    partnerModal.addEventListener('click', (e) => {
+      if (e.target === partnerModal) {
+        partnerModal.classList.remove('active');
+      }
+    });
+
+    partnerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Simple form validation
+      if (!partnerForm.checkValidity()) {
+        partnerForm.reportValidity();
+        return;
+      }
+      alert('Thank you for partnering with us!');
+      partnerModal.classList.remove('active');
+      partnerForm.reset();
+    });
+  </script>
+
+</body>
+</html>

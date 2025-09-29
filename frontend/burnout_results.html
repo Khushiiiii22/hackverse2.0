@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Burnout Prevention</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="site-wrap">
+    <nav class="nav"><div class="brand">Jellify</div><div><a href="/">Home</a><a href="/datasafeguard">Data</a><a href="/newsmyth">News</a></div></nav>
+
+    <div class="hero-card">
+      <h1 class="section-title">Burnout Prevention Dashboard</h1>
+      <div style="display:flex; gap:12px; align-items:center; margin-top:12px;">
+        <button id="burnoutToggle">Enable Burnout Prevention</button>
+        <div id="burnoutStatus">{{ burnout_result.intervention_message or "Burnout prevention is currently disabled." }}</div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <h3 class="section-title">Recent Flags</h3>
+        <div id="burnoutIssues" style="white-space:pre-wrap; color:#ffb6b6; margin-top:8px;"></div>
+      </div>
+    </div>
+
+    <div class="footer">Built with care — Jellify</div>
+  </div>
+
+  <script src="/js/app.js?v=1.0.1"></script>
+</body>
+</html>

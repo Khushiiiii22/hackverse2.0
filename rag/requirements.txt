@@ -1,0 +1,28 @@
+# ---------- Core ----------
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+
+# ---------- LangChain ----------
+langchain==0.2.0
+langchain-community==0.2.0
+langchain-ollama==0.1.0        # Ollama wrapper
+
+# ---------- Local embeddings ----------
+sentence-transformers==2.7.0   # CPU friendly
+
+# ---------- Local DB ----------
+sqlite-vss==0.1.2              # vector search in SQLite
+sqlalchemy==2.0.30
+
+# ---------- Text & OCR ----------
+pypdf==4.2.0
+python-docx==1.1.2
+pytesseract==0.3.10
+pillow>=10.4.0
+
+# ---------- Utils ----------
+pydantic>=2.7.4,<3
+pydantic-settings>=2.2.1
+python-multipart==0.0.9
+python-dotenv==1.0.1
+tenacity==8.3.0

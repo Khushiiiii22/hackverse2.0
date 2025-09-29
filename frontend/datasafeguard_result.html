@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BalanceGuard: AI Data Trust Auditor &amp; Auto-Corrector | Wellify</title>
+  <style>
+    :root {
+      --background-dark: #101622;
+      --neon-cyan: #00fff0;
+      --text-light: #dffeff;
+      --card-dark: #191f2b;
+      --border-radius: 18px;
+      --box-shadow-card: 0 4px 24px rgba(0,0,0,0.13), 0 0 42px #00fff022;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+    body {
+      margin: 0; padding: 0;
+      font-family: var(--font-family);
+      background-color: var(--background-dark);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    .site-wrap {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: auto;
+      padding: 1rem 1rem 3rem 1rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav.nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      background-color: var(--card-dark);
+      box-shadow: var(--box-shadow-card);
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    nav .brand {
+      font-size: 1.6rem;
+      color: var(--neon-cyan);
+      user-select: none;
+    }
+    nav a {
+      color: var(--neon-cyan);
+      text-decoration: none;
+      margin-left: 1.2rem;
+      padding: 0.25rem 0.4rem;
+      border-radius: 6px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    nav a:hover, nav a:focus {
+      background-color: var(--neon-cyan);
+      color: var(--background-dark);
+      outline: none;
+    }
+    .hero-card {
+      background-color: var(--card-dark);
+      border-radius: var(--border-radius);
+      padding: 3rem 2rem;
+      box-shadow: var(--box-shadow-card);
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .hero-card h1 {
+      font-weight: 700;
+      font-size: 1.9rem;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+      user-select: none;
+    }
+    .hero-card h2 {
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--neon-cyan);
+      text-align: left;
+    }
+    .insights {
+      background: rgba(0, 255, 255, 0.05);
+      border-left: 6px solid #ffcd38;
+      padding: 10px 15px;
+      margin: 0 0 1rem 0;
+      text-align: left;
+      color: #ffcd38;
+      font-weight: 600;
+    }
+    ul {
+      margin: 0 20px 1rem 40px;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+      table-layout: auto;
+    }
+    table th, table td {
+      border: 1px solid #2a2f44;
+      padding: 10px 15px;
+      text-align: left;
+    }
+    table th {
+      background-color: #232942;
+      font-weight: 600;
+    }
+    a.download-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--neon-cyan);
+      color: var(--background-dark);
+      padding: 10px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 0 30px var(--neon-cyan);
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    a.download-btn:hover {
+      background: #00d1c1;
+      box-shadow: 0 0 45px #00d1c1;
+      color: #0a1111;
+    }
+    @media (max-width: 600px) {
+      nav.nav {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem 0;
+      }
+      nav a {
+        margin-left: 0;
+      }
+      .hero-card {
+        padding: 2rem 1.5rem;
+      }
+      .hero-card h1 {
+        font-size: 1.6rem;
+      }
+      .hero-card h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrap">
+    <nav class="nav">
+      <div class="brand">Wellify</div>
+      <div>
+        <a href="/">Home</a>
+        <a href="/newsmyth">News</a>
+        <a href="/rag">RAG</a>
+      </div>
+    </nav>
+
+    <main class="hero-card">
+      <h1>BalanceGuard: AI Data Trust Auditor &amp; Auto-Corrector</h1>
+
+      <h2>Original Dataset Preview</h2>
+      {{ original_table|safe }}
+
+      <h2>Original Dataset Analysis</h2>
+      {% if orig_score < 60 %}
+        <p style="color:#ff6b6b;">Trust Score: {{ orig_score }}/100</p>
+      {% elif orig_score < 80 %}
+        <p style="color:#ffb86b;">Trust Score: {{ orig_score }}/100</p>
+      {% else %}
+        <p style="color:#7ef59b;">Trust Score: {{ orig_score }}/100</p>
+      {% endif %}
+
+      <div class="insights">
+        <h3>Issues Found</h3>
+        <ul>
+          {% for insight in insights %}
+            <li>{{ insight }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <h2>Corrected Dataset</h2>
+      <p style="color:#7ef59b;">Improved Trust Score: {{ trust_score }}/100</p>
+
+      <h2>Corrected Dataset Preview</h2>
+      {{ corrected_table|safe }}
+
+      <a href="{{ download_url }}" class="download-btn">Download Corrected CSV</a>
+    </main>
+
+    <footer class="footer" style="text-align:center; margin-top: 1rem; color:#777; font-size: 0.9rem; user-select:none;">
+      Built with care &mdash; Wellify
+    </footer>
+  </div>
+</body>
+</html>

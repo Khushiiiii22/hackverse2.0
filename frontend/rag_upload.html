@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Legal Analyzer - Document Upload | Wellify</title>
+  <style>
+    :root {
+      --background-dark: #101622;
+      --neon-cyan: #00fff0;
+      --text-light: #dffeff;
+      --card-dark: #191f2b;
+      --border-radius: 18px;
+      --box-shadow-card: 0 4px 24px rgba(0,0,0,0.13), 0 0 42px #00fff022;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+    body {
+      margin: 0; padding: 0;
+      font-family: var(--font-family);
+      background-color: var(--background-dark);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    .site-wrap {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: auto;
+      padding: 1rem 1rem 3rem 1rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav.nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      background-color: var(--card-dark);
+      box-shadow: var(--box-shadow-card);
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    nav .brand {
+      font-size: 1.6rem;
+      color: var(--neon-cyan);
+      user-select: none;
+    }
+    nav a {
+      color: var(--neon-cyan);
+      text-decoration: none;
+      margin-left: 1.2rem;
+      padding: 0.25rem 0.4rem;
+      border-radius: 6px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    nav a:hover, nav a:focus {
+      background-color: var(--neon-cyan);
+      color: var(--background-dark);
+      outline: none;
+    }
+    main.hero-card {
+      background-color: var(--card-dark);
+      border-radius: var(--border-radius);
+      padding: 3rem 2rem;
+      box-shadow: var(--box-shadow-card);
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+    main.hero-card h1 {
+      font-weight: 700;
+      font-size: 1.9rem;
+      margin-bottom: 2rem;
+      color: var(--text-light);
+      user-select: none;
+    }
+    form input[type="file"] {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      display: block;
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      border: 1px solid #444c65;
+      background-color: #202839;
+      color: var(--text-light);
+      font-size: 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+    form button {
+      margin-top: 1.75rem;
+      background-color: var(--neon-cyan);
+      color: var(--background-dark);
+      border: none;
+      padding: 0.9rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 30px var(--neon-cyan);
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    form button:hover, form button:focus {
+      background-color: #00d1c1;
+      outline: none;
+    }
+    .footer {
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      user-select: none;
+    }
+    @media (max-width: 600px) {
+      nav.nav {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem 0;
+      }
+      nav a {
+        margin-left: 0;
+      }
+      main.hero-card {
+        padding: 2rem 1.5rem;
+      }
+      main.hero-card h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrap">
+    <nav class="nav">
+      <div class="brand">Wellify</div>
+      <div>
+        <a href="/">Home</a>
+        <a href="/datasafeguard">Data</a>
+        <a href="/newsmyth">News</a>
+      </div>
+    </nav>
+
+    <main class="hero-card">
+      <h1>Upload Your Legal Document</h1>
+      <form action="/rag" method="post" enctype="multipart/form-data">
+        <input type="file" name="docfile" accept=".pdf,.txt" required />
+        <button type="submit">Analyze Document</button>
+      </form>
+    </main>
+
+    <footer class="footer">
+      Built with care &mdash; Wellify
+    </footer>
+  </div>
+</body>
+</html>

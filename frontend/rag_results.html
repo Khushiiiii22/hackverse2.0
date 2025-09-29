@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>LegalAnalyzer Results | Wellify</title>
+  <style>
+    :root {
+      --background-dark: #101622;
+      --neon-cyan: #00fff0;
+      --neon-blue: #1e90ff;
+      --neon-violet: #a259f7;
+      --text-light: #dffeff;
+      --card-dark: #191f2b;
+      --border-radius: 18px;
+      --box-shadow-card: 0 4px 24px rgba(0,0,0,0.13), 0 0 42px #00fff022;
+      --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    }
+    body {
+      margin: 0; padding: 0;
+      font-family: var(--font-family);
+      background-color: var(--background-dark);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    .site-wrap {
+      flex-grow: 1;
+      max-width: 900px;
+      margin: auto;
+      padding: 1rem 1rem 3rem 1rem;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav.nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      background-color: var(--card-dark);
+      box-shadow: var(--box-shadow-card);
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      user-select: none;
+    }
+    nav .brand {
+      font-size: 1.6rem;
+      color: var(--neon-cyan);
+    }
+    nav a {
+      color: var(--neon-cyan);
+      text-decoration: none;
+      margin-left: 1.2rem;
+      padding: 0.25rem 0.4rem;
+      border-radius: 6px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    nav a:hover, nav a:focus {
+      background-color: var(--neon-cyan);
+      color: var(--background-dark);
+      outline: none;
+    }
+    .hero-card {
+      background-color: var(--card-dark);
+      border-radius: var(--border-radius);
+      padding: 2rem 2rem 3rem 2rem;
+      flex-grow: 1;
+      color: var(--text-light);
+    }
+    h1.section-title, h3.section-title {
+      font-weight: 700;
+      color: var(--neon-cyan);
+      user-select: none;
+    }
+    h1.section-title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    h3.section-title {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+    pre {
+      max-height: 300px;
+      overflow-y: auto;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 12px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      color: var(--text-light);
+      font-family: 'Source Code Pro', monospace, monospace;
+    }
+    ul {
+      margin-left: 20px;
+      line-height: 1.5;
+      color: var(--text-light);
+    }
+    .qna-box {
+      margin-top: 20px;
+    }
+    #chat-history {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 10px;
+      border-radius: 8px;
+      max-height: 220px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    #qna-input {
+      flex-grow: 1;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #444c65;
+      background-color: #202839;
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+    #qna-input:focus {
+      outline: none;
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 10px var(--neon-cyan);
+    }
+    .qna-box div {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .qna-box button {
+      padding: 8px 16px;
+      background-color: var(--neon-cyan);
+      border: none;
+      color: var(--background-dark);
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 0 30px var(--neon-cyan);
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .qna-box button:hover {
+      background-color: #00d1c1;
+    }
+    .footer {
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      user-select: none;
+    }
+    @media (max-width: 600px) {
+      nav.nav {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem 0;
+      }
+      nav a {
+        margin-left: 0;
+      }
+      .hero-card {
+        padding: 2rem 1.5rem;
+      }
+      h1.section-title {
+        font-size: 1.6rem;
+      }
+      h3.section-title {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrap">
+    <nav class="nav">
+      <div class="brand">Wellify</div>
+      <div>
+        <a href="/">Home</a>
+        <a href="/datasafeguard">Data</a>
+        <a href="/newsmyth">News</a>
+      </div>
+    </nav>
+
+    <main class="hero-card">
+      <h1 class="section-title">LegalAnalyzer Results</h1>
+
+      <div>
+        <h3 class="section-title">Executive Summary</h3>
+        <p>{{ summary_text }}</p>
+      </div>
+
+      <div>
+        <h3 class="section-title">Full Document Text</h3>
+        <pre>{{ fulltext }}</pre>
+      </div>
+
+      {% if clauses %}
+      <div>
+        <h3 class="section-title">Key Clauses</h3>
+        <ul>
+          {% for clause in clauses %}
+          <li>{{ clause }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <div class="qna-box">
+        <h3 class="section-title">Ask Questions About Your Document</h3>
+        <div id="chat-history"></div>
+        <div>
+          <input id="qna-input" placeholder="Type your question..." />
+          <button onclick="sendQnA()">Ask</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">Built with care — Wellify</footer>
+  </div>
+
+<script>
+  async function sendQnA() {
+    var question = document.getElementById('qna-input').value.trim();
+    var history = document.getElementById('chat-history');
+    if (!question) return;
+    var userBlock = document.createElement('div');
+    userBlock.innerHTML = "<b>User:</b> " + question;
+    history.appendChild(userBlock);
+    history.scrollTop = history.scrollHeight;
+    document.getElementById('qna-input').value = '';
+
+    try {
+      const response = await fetch('/api/rag/qna', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({question: question})
+      });
+      const data = await response.json();
+      var botBlock = document.createElement('div');
+      botBlock.innerHTML = "<b>AI:</b> " + (data.answer || 'No answer available.');
+      history.appendChild(botBlock);
+      history.scrollTop = history.scrollHeight;
+    } catch (error) {
+      var errorBlock = document.createElement('div');
+      errorBlock.style.color = '#ff6b6b';
+      errorBlock.textContent = "Error querying AI. Please try again later.";
+      history.appendChild(errorBlock);
+      history.scrollTop = history.scrollHeight;
+    }
+  }
+</script>
+</body>
+</html>
