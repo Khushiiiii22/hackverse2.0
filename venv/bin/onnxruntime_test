@@ -1,4 +1,4 @@
-#!/Users/khushi22/hackverse2.0/hackverse2.0/venv/bin/python3.10
+#!/Users/khushi22/hackverse2.0/hackverse2.0/venv/bin/python3
 import sys
 from onnxruntime.tools.onnxruntime_test import main
 if __name__ == '__main__':
